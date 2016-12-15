@@ -1,0 +1,37 @@
+<html>
+<head>
+<script>
+//0 - encode
+//1 - decode
+var mode=0;
+
+function encode() {
+    mode=0;
+    update();
+}
+
+function decode() {
+    mode=1;
+    update();
+}
+
+function update() {
+    if(mode==0) {
+    document.getElementById("output").innerText = btoa(document.getElementById("text").value);
+    } else{
+    document.getElementById("output").innerText = atob(document.getElementById("text").value);
+    }
+}
+
+</script>
+</head>
+<body>
+<textarea id=text onkeyup="update()"></textarea>
+<p>
+<form>
+encode <input type="radio" checked="checked" name="opt" onchange="encode()"/>
+decode <input type="radio" name="opt" onchange="decode()"/>
+</form>
+<p>
+<textarea id=output></textarea>
+</body>
